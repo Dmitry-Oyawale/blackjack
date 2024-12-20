@@ -17,9 +17,66 @@
         <button onclick="updateBalance()">Submit</button>
     </div>
     <div id="Balance" class="hidden">
-        <p>Your balance: 0</p>
+        <p>Your balance: 2000</p>
     </div>
-     
+    <div id="Hit1" class="hidden">
+        <button onclick="dealCardToPlayer(playerCards)" id="Hit">Hit</button>
+    </div>
+    <div id="Stand1" class="hidden">
+        <button onclick="Stand2(dealerCards)" id="Stand">Stand</button>
+    </div>
+    <div id="continueYes1" class="hidden">
+        <button onclick="GameContinue2()" id="continueYes">Yes</button>
+    </div>
+    <div id="continueNo1" class="hidden">
+        <button onclick="GameContinue3()" id="continueNo">No</button>
+    </div>
+    <div id="Game_Text" class="hidden">
+        <p>Stand or hit?</p>
+    </div>
+    <div id="Placeholder_Count">
+        <p>Here</p>
+    </div>
+    <div id="Placeholder_CountD">
+        <p>Here</p>
+    </div>
+
+    <div id="Cards"> 
+        <div id="One" class="hidden">
+            <img src="one.jpg" alt="1">
+        </div>
+        <div id="Two" class="hidden">
+            <img src="one.jpg" alt="2">
+        </div>
+        <div id="Three" class="hidden">
+            <img src="one.jpg" alt="3">
+        </div>
+        <div id="Four" class="hidden">
+            <img src="one.jpg" alt="4">
+        </div>
+        <div id="Five" class="hidden">
+            <img src="one.jpg" alt="5">
+        </div>
+        <div id="Six" class="hidden">
+            <img src="one.jpg" alt="6">
+        </div>
+        <div id="Seven" class="hidden">
+            <img src="one.jpg" alt="7">
+        </div>
+        <div id="Eight" class="hidden">
+            <img src="one.jpg" alt="8">
+        </div>
+        <div id="Nine" class="hidden">
+            <img src="one.jpg" alt="9">
+        </div>
+        <div id="Ten" class="hidden">
+            <img src="one.jpg" alt="10">
+        </div>
+        <div id="Ace" class="hidden">
+            <img src="one.jpg" alt="Ace">
+        </div>
+    </div>  
+
     <script src="script2.js"></script>
 </body>
 </html>
