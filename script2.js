@@ -11,7 +11,6 @@ let balance = 2000;
 let playerCards = [];
 let dealerCards = [];
 let deck = [
-    ["One", 1],
     ["Two", 2],
     ["Three", 3],
     ["Four", 4],
@@ -85,8 +84,43 @@ function dealCardToPlayer(player_hand) {
    
     const symbolElement = document.getElementById(randomSymbol);
 
+    if (!symbolElement) {
+        console.error("Card symbol element not found:", randomSymbol);
+        return;
+    }
+
+    const cardSlotIndex = player_hand.length; // Random card slot (1 to 5)
+    //const slot = document.querySelector(`.card-slot[data-slot="${cardSlotIndex}"]`);
+    let slot;
+    if (player_hand === playerCards) {
+         slot = document.getElementById(cardSlotIndex.toString());
+    }
+    else {
+         slot = document.getElementById(cardSlotIndex.toString() + "a");
+    }
+
+    if (!slot) {
+        console.error("Slot element not found for card:", player_hand.length);
+        return;
+    }
+    slot.classList.remove('hidden');
+
+    // Get the position of the target slot
+    const rect = slot.getBoundingClientRect();
+    
+    console.log("Symbol Element position:");
+    console.log("Symbol left: ", symbolElement.offsetLeft, "Symbol top: ", symbolElement.offsetTop);
+    console.log("Slot position:");
+    console.log("Slot left: ", rect.left, "Slot top: ", rect.top);  
+    // Set custom properties for the animation
     symbolElement.classList.remove('hidden');
+    symbolElement.style.setProperty('--target-x', `${rect.left - symbolElement.offsetLeft}px`);
+    symbolElement.style.setProperty('--target-y', `${rect.top - symbolElement.offsetTop}px`);
+    //symbolElement.classList.remove('hidden');
+    symbolElement.classList.add("animate");
+
     //document.getElementById("Balance").innerText = "Your balance: " + randomIndex;
+    
     checkWL(player_hand);
 }
 
@@ -105,8 +139,6 @@ function initialDealer() {
    
     const symbolElement = document.getElementById(randomSymbol);
 
-    symbolElement.classList.remove('hidden');
-
     let count = 0;
 
     for (const card of dealerCards) {
@@ -115,6 +147,31 @@ function initialDealer() {
     if (checkAce(dealerCards) === "true" && count > 21) {count -= 10;} 
     document.getElementById("Placeholder_CountD").innerText = "Count2 " + count;
     //checkWL(dealerCards);
+
+    const cardSlotIndex = dealerCards.length; // Random card slot (1 to 5)
+    //const slot = document.querySelector(`.card-slot[data-slot="${cardSlotIndex}"]`);
+    let slot;
+    slot = document.getElementById(cardSlotIndex.toString() + "a");
+    if (!slot) {
+        console.error("Slot element not found for card:", player_hand.length);
+        return;
+    }
+    slot.classList.remove('hidden');
+
+    const rect = slot.getBoundingClientRect();
+    
+    console.log("Symbol Element position:");
+    console.log("Symbol left: ", symbolElement.offsetLeft, "Symbol top: ", symbolElement.offsetTop);
+    console.log("Slot position:");
+    console.log("Slot left: ", rect.left, "Slot top: ", rect.top);  
+    // Set custom properties for the animation
+    symbolElement.classList.remove('hidden');
+    symbolElement.style.setProperty('--target-x', `${rect.left - symbolElement.offsetLeft}px`);
+    symbolElement.style.setProperty('--target-y', `${rect.top - symbolElement.offsetTop}px`);
+    //symbolElement.classList.remove('hidden');
+    symbolElement.classList.add("animate");
+
+    // Get the position of the target slot    
 }
 
 function Stand2(playerhand) {

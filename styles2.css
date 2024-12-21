@@ -26,46 +26,121 @@
     display: none;
 }
 
-#One {
+#Cards img {
+    
+    width: 100px;
+    height: 130px;
     margin-bottom: 10px;
 }
 
 #Two {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Three {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Four {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Five {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Six {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Seven {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Eight {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Nine {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Ten {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
 }
 
 #Ace {
+    width:50px;
+    height:70px;
     margin-bottom: 10px;
+}
+
+.container{
+    position: absolute;
+    width:500px;
+    top: 300px; /* Adjust as needed */
+    left: 300px;
+    display: flex;
+    border: 10px solid black;
+    height: 22vh;
+    justify-content: space-evenly;
+}
+
+#container1 {
+    position: absolute;
+    top: 300px; /* Adjust as needed */
+    left: 300px;
+}
+
+#container2 {
+    position: absolute;
+    top: 600px; /* Adjust as needed */
+    left: 300px;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#Deck img{
+    width: 150px;
+    height: 150px;
+}
+
+.animate {
+    position: absolute;
+    animation-name: dealCard;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    transform-origin: top left;
+}
+@keyframes dealCard {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--target-x), var(--target-y));
+    }
 }
